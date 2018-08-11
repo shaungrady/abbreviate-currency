@@ -12,11 +12,13 @@
     "bundle": "rimraf dist && tsc -p tsconfig.build.json -m commonjs && rollup -c rollup.config.ts ",
     "test": "cross-env NODE_ICU_DATA='node_modules/full-icu' jest",
     "test:watch": "cross-env NODE_ICU_DATA='node_modules/full-icu' jest --watchAll",
-    "lint": "tslint --project tsconfig.json"
+    "lint": "tslint --project tsconfig.json",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
     "@types/node": "^10.5.7",
+    "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
     "full-icu": "^1.2.1",
     "jest": "^23.4.2",

@@ -13,7 +13,6 @@ jobs:
     steps:
     - checkout
 
-    # Download and cache dependencies
     - restore_cache:
         name: Restore Yarn Package Cache
         keys:
@@ -29,8 +28,8 @@ jobs:
         paths:
         - ~/.cache/yarn
 
-    # run tests!
     - run: yarn test
+    - run: yarn coveralls
 
     - store_artifacts:
         path: ~/approximate-currency/coverage
