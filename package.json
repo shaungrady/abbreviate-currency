@@ -1,11 +1,11 @@
 {
   "private": false,
-  "name": "approximate-currency",
+  "name": "abbreviate-currency",
   "version": "1.0.0",
   "description": "Abbreviate currency values in a locale-friendly way.",
-  "main": "dist/approximate-currency.umd.js",
-  "module": "dist/approximate-currency.es5.js",
-  "typings": "dist/types/approximate-currency.d.ts",
+  "main": "dist/abbreviate-currency.umd.js",
+  "module": "dist/abbreviate-currency.es5.js",
+  "typings": "dist/types/abbreviate-currency.d.ts",
   "author": "Shaun Grady",
   "license": "MIT",
   "scripts": {

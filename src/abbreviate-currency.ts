@@ -21,7 +21,7 @@ interface ProcessedDigitGroup {
   symbol: string
 }
 
-export class ApproximateCurrency {
+export class AbbreviateCurrency {
   // Defaults that can be altered by constructor config
   static defaultConfig: Config = {
     language: window.navigator.language,
@@ -49,7 +49,7 @@ export class ApproximateCurrency {
   private readonly fractionalDisplayLimit: number = 10
 
   constructor (config?: Config) {
-    Object.assign(this, ApproximateCurrency.defaultConfig, config)
+    Object.assign(this, AbbreviateCurrency.defaultConfig, config)
 
     this.processedDigitGroups = this.processDigitGroups()
 
@@ -101,7 +101,7 @@ export class ApproximateCurrency {
 
   private normalize (value: number | string): number {
     const num = Number(value)
-    if (isNaN(num)) throw Error(`Invalid ApproximateCurrency 'transform' argument: '${value}'`)
+    if (isNaN(num)) throw Error(`Invalid AbbreviateCurrency 'transform' argument: '${value}'`)
     return num
   }
 

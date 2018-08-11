@@ -6,9 +6,9 @@ import typescript from 'rollup-plugin-typescript2'
 const pkg = require('./package.json')
 
 export default {
-  input: `src/approximate-currency.ts`,
+  input: `src/abbreviate-currency.ts`,
   output: [
-    { file: pkg.main, name: 'ApproximateCurrency', format: 'umd', sourcemap: true },
+    { file: pkg.main, name: 'AbbreviateCurrency', format: 'umd', sourcemap: true },
     { file: pkg.module, format: 'es', sourcemap: true }
   ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')

@@ -8,7 +8,7 @@ jobs:
     docker:
     - image: circleci/node:10
 
-    working_directory: ~/approximate-currency
+    working_directory: ~/abbreviate-currency
 
     steps:
     - checkout
@@ -33,4 +33,4 @@ jobs:
     - run: yarn coveralls
 
     - store_artifacts:
-        path: ~/approximate-currency/coverage
+        path: ~/abbreviate-currency/coverage

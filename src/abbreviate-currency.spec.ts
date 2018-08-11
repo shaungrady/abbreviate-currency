@@ -1,5 +1,5 @@
 import { versions } from 'process'
-import { ApproximateCurrency } from './approximate-currency'
+import { AbbreviateCurrency } from './abbreviate-currency'
 
 const [major] = versions.node.split('.')
 const hasIcu = typeof (versions as any).icu === 'string'
@@ -7,27 +7,27 @@ const hasIcu = typeof (versions as any).icu === 'string'
 if (major !== '10') throw Error(`Tests require node 10 (currently using v${versions.node})`)
 if (!hasIcu) throw Error(`Tests must be run with 'full-icu' package installed`)
 
-describe(`ApproximateCurrency`, () => {
+describe(`AbbreviateCurrency`, () => {
   it(`instantiates without arguments`, () => {
-    expect(new ApproximateCurrency()).toBeInstanceOf(ApproximateCurrency)
+    expect(new AbbreviateCurrency()).toBeInstanceOf(AbbreviateCurrency)
   })
 
   it(`#transform parses number strings`, () => {
-    const approx = new ApproximateCurrency()
+    const approx = new AbbreviateCurrency()
     expect(approx.transform('123')).toBe(('$123'))
   })
 
   it(`#transform throws an error for NaN numbers/strings`, () => {
-    const approx = new ApproximateCurrency()
+    const approx = new AbbreviateCurrency()
     expect(() => { approx.transform('potato') })
-      .toThrowError(`Invalid ApproximateCurrency 'transform' argument: 'potato'`)
+      .toThrowError(`Invalid AbbreviateCurrency 'transform' argument: 'potato'`)
 
     expect(() => { approx.transform({} as any) })
-      .toThrowError(`Invalid ApproximateCurrency 'transform' argument: '[object Object]'`)
+      .toThrowError(`Invalid AbbreviateCurrency 'transform' argument: '[object Object]'`)
   })
 
   describe(`by default`, () => {
-    let approx = new ApproximateCurrency()
+    let approx = new AbbreviateCurrency()
 
     it(`uses navigator.language as language`, () => {
       expect(approx.language).toBe(window.navigator.language)
@@ -81,7 +81,7 @@ describe(`ApproximateCurrency`, () => {
   describe(`configuration`, () => {
     describe(`language`, () => {
       describe(`fr-CA`, () => {
-        const x = new ApproximateCurrency({ language: 'fr-CA' })
+        const x = new AbbreviateCurrency({ language: 'fr-CA' })
 
         const testCases: [number, string][] = [
           [0, '0 $ US'],
@@ -107,7 +107,7 @@ describe(`ApproximateCurrency`, () => {
       })
 
       describe(`es-MX`, () => {
-        const x = new ApproximateCurrency({ language: 'es-MX' })
+        const x = new AbbreviateCurrency({ language: 'es-MX' })
 
         const testCases: [number, string][] = [
           [0, 'USD 0'],
@@ -133,7 +133,7 @@ describe(`ApproximateCurrency`, () => {
       })
 
       describe(`de-DE`, () => {
-        const x = new ApproximateCurrency({ language: 'de-DE' })
+        const x = new AbbreviateCurrency({ language: 'de-DE' })
 
         const testCases: [number, string][] = [
           [0, '0 $'],
@@ -161,7 +161,7 @@ describe(`ApproximateCurrency`, () => {
 
     describe(`currencyCode`, () => {
       describe(`CAD`, () => {
-        const approx = new ApproximateCurrency({ currencyCode: 'CAD' })
+        const approx = new AbbreviateCurrency({ currencyCode: 'CAD' })
 
         const testCases: [number, string][] = [
           [0, 'CA$0'],
@@ -185,7 +185,7 @@ describe(`ApproximateCurrency`, () => {
       })
 
       describe(`EUR`, () => {
-        const approx = new ApproximateCurrency({ currencyCode: 'EUR' })
+        const approx = new AbbreviateCurrency({ currencyCode: 'EUR' })
 
         const testCases: [number, string][] = [
           [0, '€0'],
@@ -211,7 +211,7 @@ describe(`ApproximateCurrency`, () => {
 
     describe(`useLowerCaseSymbols`, () => {
       it(`lowers K, M, B, and T`, () => {
-        const approx = new ApproximateCurrency({ useLowerCaseSymbols: true })
+        const approx = new AbbreviateCurrency({ useLowerCaseSymbols: true })
         expect(approx.transform(1000)).toBe('$1k')
         expect(approx.transform(1000000)).toBe('$1m')
         expect(approx.transform(1000000000)).toBe('$1b')
@@ -221,7 +221,7 @@ describe(`ApproximateCurrency`, () => {
 
     describe(`digitGroups`, () => {
       it(`accepts custom symbols and digits`, () => {
-        const approx = new ApproximateCurrency({
+        const approx = new AbbreviateCurrency({
           digitGroups: [
             { symbol: 'x', digits: 3 },
             { symbol: '🤘', digits: 5 }
