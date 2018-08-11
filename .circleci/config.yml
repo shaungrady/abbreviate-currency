@@ -31,3 +31,6 @@ jobs:
 
     # run tests!
     - run: yarn test
+
+    - store_artifacts:
+        path: ~/approximate-currency/coverage
