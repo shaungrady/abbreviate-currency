@@ -2,7 +2,7 @@
   "private": false,
   "name": "approximate-currency",
   "version": "1.0.0",
-  "description": "Abbreviate currency values in a locale-sensitive way.",
+  "description": "Abbreviate currency values in a locale-friendly way.",
   "main": "dist/approximate-currency.umd.js",
   "module": "dist/approximate-currency.es5.js",
   "typings": "dist/types/approximate-currency.d.ts",
