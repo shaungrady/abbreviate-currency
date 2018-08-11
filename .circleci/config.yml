@@ -28,6 +28,7 @@ jobs:
         paths:
         - ~/.cache/yarn
 
+    - run: yarn lint
     - run: yarn test
     - run: yarn coveralls
 
