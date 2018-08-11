@@ -1,3 +1,5 @@
+/*! Written with love by Shaun Grady — https://shaungrady.com */
+
 import { indexOfLastDigit } from './helpers/index-of-last-digit'
 import { spliceString } from './helpers/splice-string'
 

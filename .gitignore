@@ -1,4 +1,7 @@
-coverage/
+node_modules
+coverage
+.DS_Store
+.rpt2_cache
 
 # Editor/IDE
 .idea

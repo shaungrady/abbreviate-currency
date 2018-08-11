@@ -1,12 +1,11 @@
 import { versions } from 'process'
-import { ApproximateCurrency } from './index'
+import { ApproximateCurrency } from './approximate-currency'
 
-beforeAll(() => {
-  it(`node has ICU support enabled`, () => {
-    const hasICU = typeof (versions as any).icu === 'string'
-    expect(hasICU).toBe(true)
-  })
-})
+const [major] = versions.node.split('.')
+const hasIcu = typeof (versions as any).icu === 'string'
+
+if (major !== '10') throw Error(`Tests require node 10 (currently using v${versions.node})`)
+if (!hasIcu) throw Error(`Tests must be run with 'full-icu' package installed`)
 
 describe(`ApproximateCurrency`, () => {
   it(`instantiates without arguments`, () => {
