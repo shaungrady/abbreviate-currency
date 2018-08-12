@@ -72,7 +72,6 @@ Takes a number or number-like string and abbreviates it.
               199,999 => '$199K'
   199,999,999,999,999 => '$199T'
 1,999,999,999,999,999 => '$1,999T'
-
 ```
 
 

@@ -16,7 +16,7 @@ jobs:
     - restore_cache:
         name: Restore Yarn Package Cache
         keys:
-        - yarn-packages-{{ checksum "yarn.lock" }}
+        - npm-packages-{{ checksum "package-lock.json" }}
 
     - run:
         name: Install Dependencies
@@ -24,14 +24,14 @@ jobs:
 
     - save_cache:
         name: Save Yarn Package Cache
-        key: yarn-packages-{{ checksum "yarn.lock" }}
+        key: npm-packages-{{ checksum "package-lock.json" }}
         paths:
-        - ~/.cache/yarn
+        - ~/.npm
 
-    - run: yarn lint
-    - run: yarn test
-    - run: yarn bundle
-    - run: yarn report-coverage
+    - run: npm run lint
+    - run: npm run test
+    - run: npm run bundle
+    - run: npm run report-coverage
 
     - store_artifacts:
         path: ~/abbreviate-currency/coverage
