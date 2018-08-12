@@ -20,8 +20,8 @@ jobs:
         - npm-dependencies-
 
     - run:
-        name: Install Dependencies
-        command: npm install
+        name: Install npm Dependencies
+        command: npm ci
 
     - save_cache:
         name: Save npm Package Cache
