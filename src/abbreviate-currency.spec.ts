@@ -73,7 +73,7 @@ describe(`AbbreviateCurrency`, () => {
       ]
 
       testCases.forEach(([input, output]) => {
-        it(`${input} to '${output}'`, () => expect(approx.transform(input)).toBe(output))
+        it(`${input.toLocaleString()} to '${output}'`, () => expect(approx.transform(input)).toBe(output))
       })
     })
   })
@@ -102,7 +102,7 @@ describe(`AbbreviateCurrency`, () => {
         testCases.forEach(([input, output]) => {
           // Ensure spaces are changed to non-breaking spaces
           output = output.replace(' ', ' ')
-          it(`${input} to '${output}'`, () => expect(x.transform(input)).toEqual(output))
+          it(`${input.toLocaleString()} to '${output}'`, () => expect(x.transform(input)).toEqual(output))
         })
       })
 
@@ -128,7 +128,7 @@ describe(`AbbreviateCurrency`, () => {
         testCases.forEach(([input, output]) => {
           // Ensure spaces are changed to non-breaking spaces
           output = output.replace(' ', ' ')
-          it(`${input} to '${output}'`, () => expect(x.transform(input)).toEqual(output))
+          it(`${input.toLocaleString()} to '${output}'`, () => expect(x.transform(input)).toEqual(output))
         })
       })
 
@@ -154,7 +154,7 @@ describe(`AbbreviateCurrency`, () => {
         testCases.forEach(([input, output]) => {
           // Ensure spaces are changed to non-breaking spaces
           output = output.replace(' ', ' ')
-          it(`${input} to '${output}'`, () => expect(x.transform(input)).toEqual(output))
+          it(`${input.toLocaleString()} to '${output}'`, () => expect(x.transform(input)).toEqual(output))
         })
       })
     })
@@ -180,7 +180,7 @@ describe(`AbbreviateCurrency`, () => {
         ]
 
         testCases.forEach(([input, output]) => {
-          it(`${input} to '${output}'`, () => expect(approx.transform(input)).toBe(output))
+          it(`${input.toLocaleString()} to '${output}'`, () => expect(approx.transform(input)).toBe(output))
         })
       })
 
@@ -204,7 +204,7 @@ describe(`AbbreviateCurrency`, () => {
         ]
 
         testCases.forEach(([input, output]) => {
-          it(`${input} to '${output}'`, () => expect(approx.transform(input)).toBe(output))
+          it(`${input.toLocaleString()} to '${output}'`, () => expect(approx.transform(input)).toBe(output))
         })
       })
     })
