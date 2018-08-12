@@ -16,15 +16,16 @@ jobs:
     - restore_cache:
         name: Restore npm Package Cache
         keys:
-        - npm-package-lock-{{ checksum "package-lock.json" }}
+        - npm-dependencies-{{ checksum "package-lock.json" }}
+        - npm-dependencies-
 
     - run:
-        name: Install Dependencies
-        command: npm install
+        name: Install npm Dependencies
+        command: npm ci
 
     - save_cache:
         name: Save npm Package Cache
-        key: npm-package-lock-{{ checksum "package-lock.json" }}
+        key: npm-dependencies-{{ checksum "package-lock.json" }}
         paths:
         - ~/.npm
 
