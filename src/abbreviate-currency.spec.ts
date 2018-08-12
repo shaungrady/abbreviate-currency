@@ -34,7 +34,7 @@ describe(`AbbreviateCurrency`, () => {
     })
 
     it(`uses 'USD' as currency code`, () => {
-      expect(approx.currencyCode).toBe('USD')
+      expect(approx.currency).toBe('USD')
     })
 
     it(`uses uppercase symbols`, () => {
@@ -161,7 +161,7 @@ describe(`AbbreviateCurrency`, () => {
 
     describe(`currencyCode`, () => {
       describe(`CAD`, () => {
-        const approx = new AbbreviateCurrency({ currencyCode: 'CAD' })
+        const approx = new AbbreviateCurrency({ currency: 'CAD' })
 
         const testCases: [number, string][] = [
           [0, 'CA$0'],
@@ -185,7 +185,7 @@ describe(`AbbreviateCurrency`, () => {
       })
 
       describe(`EUR`, () => {
-        const approx = new AbbreviateCurrency({ currencyCode: 'EUR' })
+        const approx = new AbbreviateCurrency({ currency: 'EUR' })
 
         const testCases: [number, string][] = [
           [0, '€0'],

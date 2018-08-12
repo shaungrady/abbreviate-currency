@@ -5,7 +5,7 @@ import { spliceString } from './helpers/splice-string'
 
 interface Config {
   language?: string
-  currencyCode?: string
+  currency?: string
   useLowerCaseSymbols?: boolean
   digitGroups?: DigitGroup[]
 }
@@ -25,7 +25,7 @@ export class AbbreviateCurrency {
   // Defaults that can be altered by constructor config
   static defaultConfig: Config = {
     language: window.navigator.language,
-    currencyCode: 'USD',
+    currency: 'USD',
     useLowerCaseSymbols: false,
     digitGroups: [
       { symbol: 'K', digits: 4 },
@@ -37,7 +37,7 @@ export class AbbreviateCurrency {
 
   //
   readonly language!: string
-  readonly currencyCode!: string
+  readonly currency!: string
   readonly useLowerCaseSymbols!: boolean
   readonly digitGroups!: DigitGroup[]
 
@@ -106,14 +106,14 @@ export class AbbreviateCurrency {
   }
 
   private format (value: number, round = true, decimalPlaces = 2): string {
-    const { language, currencyCode, radixSymbol } = this
+    const { language, currency, radixSymbol } = this
 
     if (!round) {
       const by = Math.pow(10, decimalPlaces)
       value = Math.floor(value * by) / by
     } else value = Number(value.toFixed(decimalPlaces))
 
-    const formatted = value.toLocaleString(language, { style: 'currency', currency: currencyCode })
+    const formatted = value.toLocaleString(language, { style: 'currency', currency: currency })
     const fractionalPartWithRadix = radixSymbol + this.getFractionalPart(formatted)
     const chars = decimalPlaces ? decimalPlaces + 1 : 0
     const output = formatted.replace(fractionalPartWithRadix, fractionalPartWithRadix.substring(0, chars))
