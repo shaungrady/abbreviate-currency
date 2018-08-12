@@ -1,7 +1,8 @@
 node_modules
 coverage
-.DS_Store
 .rpt2_cache
+test-results
+.DS_Store
 
 # Editor/IDE
 .idea
