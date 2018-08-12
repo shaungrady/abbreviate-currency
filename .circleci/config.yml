@@ -30,7 +30,7 @@ jobs:
 
     - run: yarn lint
     - run: yarn test
-    - run: yarn coveralls
+    - run: yarn report-coverage
 
     - store_artifacts:
         path: ~/abbreviate-currency/coverage
