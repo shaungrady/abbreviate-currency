@@ -13,7 +13,7 @@
     "test": "cross-env NODE_ICU_DATA='node_modules/full-icu' jest",
     "test:watch": "cross-env NODE_ICU_DATA='node_modules/full-icu' jest --watchAll",
     "lint": "tslint --project tsconfig.json",
-    "report-coverage": "codeclimate-test-reporter < lcov.info"
+    "report-coverage": "codeclimate-test-reporter < ./coverage/lcov.info"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
