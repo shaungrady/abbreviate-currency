@@ -9,7 +9,7 @@
   "author": "Shaun Grady",
   "license": "MIT",
   "scripts": {
-    "bundle": "rimraf dist && tsc -p tsconfig.build.json -m commonjs && rollup -c rollup.config.ts ",
+    "bundle": "rimraf dist && tsc -p tsconfig.build.json -m commonjs && rollup -c rollup.config.ts",
     "test": "cross-env NODE_ICU_DATA='node_modules/full-icu' jest",
     "test:watch": "cross-env NODE_ICU_DATA='node_modules/full-icu' jest --watchAll",
     "lint": "tslint --project tsconfig.json",

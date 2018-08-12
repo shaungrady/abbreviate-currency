@@ -1,7 +1,6 @@
 [![CircleCI](https://circleci.com/gh/shaungrady/abbreviate-currency.svg?style=svg)](https://circleci.com/gh/shaungrady/abbreviate-currency)
-[![Coverage Status](https://coveralls.io/repos/github/shaungrady/abbreviate-currency/badge.svg?branch=master)](https://coveralls.io/github/shaungrady/abbreviate-currency?branch=master)
-
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/d97bd90ec32ff0b2b283/maintainability)](https://codeclimate.com/github/shaungrady/approximate-currency/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d97bd90ec32ff0b2b283/test_coverage)](https://codeclimate.com/github/shaungrady/approximate-currency/test_coverage)
 # AbbreviateCurrency
 
 Abbreviate currency values in a locale-friendly way.
