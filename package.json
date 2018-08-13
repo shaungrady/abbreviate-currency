@@ -2,7 +2,8 @@
   "private": false,
   "name": "abbreviate-currency",
   "version": "1.0.0",
-  "description": "Abbreviate currency values in a locale-friendly way.",
+  "homepage": "https://github.com/shaungrady/abbreviate-currency",
+  "description": "Abbreviate currency values in a configurable, locale-friendly way.",
   "main": "dist/abbreviate-currency.umd.js",
   "module": "dist/abbreviate-currency.es5.js",
   "typings": "dist/types/abbreviate-currency.d.ts",
@@ -15,6 +16,21 @@
     "lint": "tslint --project tsconfig.json",
     "report-coverage": "codeclimate-test-reporter < ./coverage/lcov.info"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:shaungrady/abbreviate-currency.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shaungrady/abbreviate-currency/issues"
+  },
+  "keywords": [
+    "currency",
+    "money",
+    "locale",
+    "internationalization",
+    "short",
+    "approximate"
+  ],
   "devDependencies": {
     "@types/jest": "^23.3.1",
     "@types/node": "^10.5.7",
