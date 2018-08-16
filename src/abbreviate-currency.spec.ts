@@ -233,4 +233,26 @@ describe(`AbbreviateCurrency`, () => {
       })
     })
   })
+
+  describe(`instance method`, () => {
+    describe(`config`, () => {
+      it(`returns the instance's config`, () => {
+        const config = {
+          language: 'fr-CA',
+          currency: 'MXN',
+          useLowerCaseSymbols: true,
+          digitGroups: [
+            { symbol: ':D', digits: 5 },
+            { symbol: 'D:', digits: 9 }
+          ]
+        }
+
+        const defaultInstance = new AbbreviateCurrency()
+        expect(defaultInstance.config).toEqual(AbbreviateCurrency.defaultConfig)
+
+        const customInstance = new AbbreviateCurrency(config)
+        expect(customInstance.config).toEqual(config)
+      })
+    })
+  })
 })
