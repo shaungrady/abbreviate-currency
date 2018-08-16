@@ -7,16 +7,16 @@
 
 ---
 
-Abbreviate currency values in a configurable, locale-friendly way.
+Abbreviate currency values in a configurable, locale-friendly way. No dependencies!
 
 **Example Usage:**
 
 ```js
 import { AbbreviateCurrency } from 'abbreviate-currency'
 
+const value = 75300.55
 const americanEnglishUsd = new AbbreviateCurrency({ language: 'en-US' })
 const frenchCanadianEuros = new AbbreviateCurrency({ language: 'fr-CA', currency: 'EUR' })
-const value = 75300.55
 
 americanEnglishUsd.transform(value) // -> '$75.3K'
 frenchCanadianEuros.transform(value) // -> '75,3K €'
@@ -32,25 +32,46 @@ $ npm install abbreviate-currency
 
 Or [download a release](https://github.com/shaungrady/abbreviate-currency/releases).
 
-### Instantiation
+### Class Properties
 
-Instances are immutable. Values shown below are the defaults.
-Defaults can be overridden by modifying `AbbreviateCurrency.defaultConfig`.
-Changes to the default config will not be inherited by any previous class instances, as they are immutable.
+#### `defaultConfig`
+
+The default config object used to construct new instances. Changes made to `defaultConfig` will only affect instances
+constructed after the change, and are not inherited by previously-constructed instances.
+
+##### Config Object
+
+| Property | Default | Description |
+| :--- | :--- | :--- |
+| language | `navigator.language` | BCP 47 language tag; e.g., `'en-US'` |
+| currency | `'USD'` | ISO 4217 currency code; e.g., `EUR`. |
+| useLowerCaseSymbols | `false` | Determines if digit symbols should be capitalized or not. |
+| digitGroups | See below. | Array of DigitGroups. |
+
+###### DigitGroup
+
+| Property | Description |
+| :--- | :--- |
+| symbol | String. Symbol to append to the value when abbreviated; e.g., `'K'` is used to abbreviate 1,000 in "$1K". |
+| digits | Number. How many digit places for which this abbreviation should apply; e.g., 1,000 is `4` digits. |
+
+The default `digitGroups` array is as follows:
 
 ```js
-new AbbreviateCurrency({
-  language: window.navigator.language, // String; BCP 47 language tag. Defaults to browser's language, e.g., 'en-US'.
-  currency: 'USD', // ISO 4217 currency code.
-  useLowerCaseSymbols: false, // E.g., use 'K' or 'k' for thousands.
-  digitGroups: [
+[
     { symbol: 'K', digits: 4 }, // 1,000+ (4 digits or more.)
     { symbol: 'M', digits: 7 }, // 1,000,000+ (7 digits or more.)
     { symbol: 'B', digits: 10 }, // 1,000,000,000+ (10 digits or more.)
     { symbol: 'T', digits: 13 } // 1,000,000,000,000+ (13 digits or more.)
   ]
-})
 ```
+
+
+### Instantiation
+
+Instances are immutable. Values shown below are the defaults.
+Defaults can be overridden by modifying `AbbreviateCurrency.defaultConfig`.
+Changes to the default config will not be inherited by any previous class instances, as they are immutable.
 
 ### Instance Methods
 
@@ -75,7 +96,9 @@ Takes a number or number-like string and abbreviates it.
 1,999,999,999,999,999 => '$1,999T'
 ```
 
+#### `config()`
 
+Returns the configuration object used when constructing the AbbreviateCurrency instance.
 
 ## A Quick Note
 
