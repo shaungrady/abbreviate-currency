@@ -60,7 +60,7 @@ export class AbbreviateCurrency {
     Object.freeze(this)
   }
 
-  transform (value: number | string) {
+  transform (value: number | string): string {
     const amount = this.normalize(value)
     const absAmount = Math.abs(amount)
     const groups = this.processedDigitGroups
@@ -80,6 +80,17 @@ export class AbbreviateCurrency {
     }
 
     return output
+  }
+
+  get config (): Config {
+    return {
+      language: this.language,
+      currency: this.currency,
+      useLowerCaseSymbols: this.useLowerCaseSymbols,
+      digitGroups: this.digitGroups
+        .slice()
+        .map(group => Object.assign({}, group))
+    }
   }
 
   private processDigitGroups (): ProcessedDigitGroup[] {
