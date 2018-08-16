@@ -41,6 +41,20 @@ var AbbreviateCurrency = (function () {
         }
         return output;
     };
+    Object.defineProperty(AbbreviateCurrency.prototype, "config", {
+        get: function () {
+            return {
+                language: this.language,
+                currency: this.currency,
+                useLowerCaseSymbols: this.useLowerCaseSymbols,
+                digitGroups: this.digitGroups
+                    .slice()
+                    .map(function (group) { return Object.assign({}, group); })
+            };
+        },
+        enumerable: true,
+        configurable: true
+    });
     AbbreviateCurrency.prototype.processDigitGroups = function () {
         var _this = this;
         return this.digitGroups

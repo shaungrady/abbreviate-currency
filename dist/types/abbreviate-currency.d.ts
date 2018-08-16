@@ -20,6 +20,7 @@ export declare class AbbreviateCurrency {
     private readonly fractionalDisplayLimit;
     constructor(config?: Config);
     transform(value: number | string): string;
+    readonly config: Config;
     private processDigitGroups;
     private normalize;
     private format;
