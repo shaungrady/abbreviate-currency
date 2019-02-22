@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "abbreviate-currency",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/shaungrady/abbreviate-currency",
   "description": "Abbreviate currency values in a configurable, locale-friendly way.",
   "main": "dist/abbreviate-currency.umd.js",

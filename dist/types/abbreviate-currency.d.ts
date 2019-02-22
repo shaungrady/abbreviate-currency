@@ -1,9 +1,9 @@
 /*! Written with love by Shaun Grady — https://shaungrady.com */
 interface Config {
-    language?: string;
-    currency?: string;
-    useLowerCaseSymbols?: boolean;
-    digitGroups?: DigitGroup[];
+    language: string;
+    currency: string;
+    useLowerCaseSymbols: boolean;
+    digitGroups: DigitGroup[];
 }
 interface DigitGroup {
     digits: number;
@@ -18,7 +18,7 @@ export declare class AbbreviateCurrency {
     private readonly processedDigitGroups;
     private readonly radixSymbol;
     private readonly fractionalDisplayLimit;
-    constructor(config?: Config);
+    constructor(config?: Partial<Config>);
     transform(value: number | string): string;
     readonly config: Config;
     private processDigitGroups;

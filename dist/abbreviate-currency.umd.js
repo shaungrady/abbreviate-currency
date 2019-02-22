@@ -1,8 +1,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.AbbreviateCurrency = {})));
-}(this, (function (exports) { 'use strict';
+  (global = global || self, factory(global.AbbreviateCurrency = {}));
+}(this, function (exports) { 'use strict';
 
   function indexOfLastDigit(formattedAmount) {
       var chars = Array.from(formattedAmount);
@@ -132,5 +132,5 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=abbreviate-currency.umd.js.map
