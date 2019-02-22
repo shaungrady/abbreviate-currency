@@ -4,10 +4,10 @@ import { indexOfLastDigit } from './helpers/index-of-last-digit'
 import { spliceString } from './helpers/splice-string'
 
 interface Config {
-  language?: string
-  currency?: string
-  useLowerCaseSymbols?: boolean
-  digitGroups?: DigitGroup[]
+  language: string
+  currency: string
+  useLowerCaseSymbols: boolean
+  digitGroups: DigitGroup[]
 }
 
 interface DigitGroup {
@@ -48,7 +48,7 @@ export class AbbreviateCurrency {
   // Make this configurable at some point, maybe?
   private readonly fractionalDisplayLimit: number = 10
 
-  constructor (config?: Config) {
+  constructor (config?: Partial<Config>) {
     Object.assign(this, AbbreviateCurrency.defaultConfig, config)
 
     this.processedDigitGroups = this.processDigitGroups()
