@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/abbreviate-currency.svg)](https://badge.fury.io/js/abbreviate-currency)
 [![CircleCI](https://circleci.com/gh/shaungrady/abbreviate-currency.svg?style=shield)](https://circleci.com/gh/shaungrady/abbreviate-currency)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d97bd90ec32ff0b2b283/maintainability)](https://codeclimate.com/github/shaungrady/approximate-currency/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/d97bd90ec32ff0b2b283/test_coverage)](https://codeclimate.com/github/shaungrady/approximate-currency/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d97bd90ec32ff0b2b283/test_coverage)](https://codeclimate.com/github/shaungrady/approximate-currency/test_coverage) [![Greenkeeper badge](https://badges.greenkeeper.io/shaungrady/abbreviate-currency.svg)](https://greenkeeper.io/)
 
 ---
 
