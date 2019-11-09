@@ -4,7 +4,7 @@ import { AbbreviateCurrency } from './abbreviate-currency'
 const [major] = versions.node.split('.')
 const hasIcu = typeof (versions as any).icu === 'string'
 
-if (major !== '10') throw Error(`Tests require node 10 (currently using v${versions.node})`)
+if (major !== '12') throw Error(`Tests require node 12 (currently using v${versions.node})`)
 if (!hasIcu) throw Error(`Tests must be run with 'full-icu' package installed`)
 
 describe(`AbbreviateCurrency`, () => {
@@ -122,7 +122,7 @@ describe(`AbbreviateCurrency`, () => {
           [19999, 'USD 19.9K'],
           [199999, 'USD 199K'],
           [199999999999999, 'USD 199T'],
-          [1999999999999999, 'USD 1,999T']
+          [1999999999999999, 'USD 1999T']
         ]
 
         testCases.forEach(([input, output]) => {

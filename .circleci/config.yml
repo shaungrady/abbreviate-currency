@@ -2,40 +2,39 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
-    - image: circleci/node:10
+      - image: circleci/node:12
 
     working_directory: ~/abbreviate-currency
 
     steps:
-    - checkout
+      - checkout
 
-    - restore_cache:
-        name: Restore npm Package Cache
-        keys:
-        - npm-dependencies-{{ checksum "package-lock.json" }}
-        - npm-dependencies-
+      - restore_cache:
+          name: Restore Caches
+          key: caches-{{ checksum "package-lock.json" }}
 
-    - run:
-        name: Install npm Dependencies
-        command: npm ci
+      - run:
+          name: Install npm Dependencies
+          command: npm ci
 
-    - save_cache:
-        name: Save npm Package Cache
-        key: npm-dependencies-{{ checksum "package-lock.json" }}
-        paths:
-        - ~/.npm
+      - save_cache:
+          name: Save Caches
+          key: caches-{{ checksum "package-lock.json" }}
+          paths:
+            - .tsbuildinfo
+            - ~/.npm
 
-    - run: npm run lint
-    - run: npm run test -- --reporters=default --reporters=jest-junit
-    - run: npm run bundle
-    - run: npm run report-coverage
+      - run: npm run lint
+      - run: npm run test:coverage -- --reporters=jest-junit
+      - run: npm run bundle
+      - run: npm run report-coverage
 
-    - store_test_results:
-        path: ~/abbreviate-currency/test-results
+      - store_test_results:
+          path: test-results
 
-    - store_artifacts:
-        path: ~/abbreviate-currency/coverage
+      - store_artifacts:
+          path: coverage

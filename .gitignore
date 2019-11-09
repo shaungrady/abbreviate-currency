@@ -1,5 +1,6 @@
 node_modules
 coverage
+.tsbuildinfo
 .rpt2_cache
 test-results
 .DS_Store
