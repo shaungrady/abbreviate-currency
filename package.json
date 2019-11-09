@@ -13,6 +13,7 @@
     "bundle": "rimraf dist && tsc -p tsconfig.build.json -m commonjs && rollup -c rollup.config.ts",
     "test": "cross-env NODE_ICU_DATA='node_modules/full-icu' jest",
     "test:watch": "cross-env NODE_ICU_DATA='node_modules/full-icu' jest --watchAll",
+    "test:coverage": "npm run test -- --reporters=default",
     "lint": "tslint --project tsconfig.json",
     "report-coverage": "codeclimate-test-reporter < ./coverage/lcov.info",
     "preversion": "npm run test",
@@ -56,6 +57,7 @@
     "dist"
   ],
   "jest-junit": {
-    "output": "./test-results/jest/results.xml"
+    "outputDirectory": "./test-results/jest",
+    "outputName": "results.xml"
   }
 }
